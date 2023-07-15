@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "raleway_r", sans-serif;
+}
+
+@font-face {
+    font-family: "raleway_b";
+    src: url("../fonts/raleway-black.woff2");
+}
+
+@font-face {
+    font-family: "raleway_r";
+    src: url("../fonts/raleway-regular.woff2");
+}
+
+html {
+    background-color: #010101;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+.layers {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.layers .layer-header {
+    color: #fff;
+    z-index: 10;
+    transform: translate3d(0, calc(var(--scrollTop) / 1.5), 0);
+    z-index: 2;
+}
+
+.layer-header .layer-subtitle,
+.layer-header .layer-title {
+    font-family: "raleway_b";
+    letter-spacing: 5px;
+    text-shadow: 0px 0px 15px #D7C250;
+}
+
+.layer-header .layer-subtitle {
+    margin-bottom: 10px;
+}
+
+.layer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.layer.layer-base {
+    background: url("../img/layer-base.png");
+    background-position: center;
+    background-size: cover;
+    transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+    z-index: 0;
+}
+
+.layer.layer-middle {
+    background: url("../img/layer-middle.png");
+    background-position: center;
+    background-size: cover;
+    z-index: 2;
+    transform: translate3d(0, calc(var(--scrollTop) / 2.8), 0);
+}
+
+.layer.layer-front {
+    background: url("../img/layer-front.png");
+    background-position: center;
+    background-size: cover;
+    z-index: 3;
+    transform: translate3d(0, calc(var(--scrollTop) / 9.5), 0);
+}
+
+.cave {
+    width: 100%;
+    height: 100vh;
+    background: url("../img/dungeon.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 10;
+    transform: translate3d(0, calc(var(--scrollTop) / -8), 0);
+}
+
+.cave .wrapper {
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    color: rgb(210, 210, 210);
+    gap: 12px;
+}
+
+.cave .wrapper .title {
+    font-family: "raleway_b";
+    letter-spacing: 2px;
+}
+
+@media (max-width : 500px) {
+    .layer-header .layer-subtitle {
+        font-size: 14px;
+    }
+
+    .layer-header .layer-title {
+        font-size: 26px;
+    }
+}
